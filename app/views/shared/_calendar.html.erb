@@ -1,5 +1,5 @@
 <div class="calendar-wrapper">
-    <h2 class="calendar-title">2019/12</h2>
+    <h2 class="calendar-title"><%= Time.current.strftime("%Y年 %m月") %></h2>
     <div class="calendar-date">
         <div class="calendar-day">月</div>
         <div class="calendar-day">火</div>
@@ -13,7 +13,14 @@
         <% end %>
 
         <% get_all_month_day.times do |i|  %>
-            <div class="calendar-num"><%= i + 1 %></div>
+            <div class="calendar-num">
+                <p><%= i + 1 %></p>
+                <% @messages.each do |msg| %>
+                    <% if i+1 == msg.date.day %>
+                        <div class="calendar-message-title"><%= msg.title %></div>
+                    <% end %>
+                <% end %>
+            </div>
         <% end %>
     </div>
 </div>

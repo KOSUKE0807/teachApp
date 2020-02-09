@@ -2,7 +2,7 @@
 <p>Find me in app/views/teachers/show.html.erb</p>
 
 <%= link_to "テスト一覧", tests_path, class: "btn btn-dark"  %>
-
+<%= link_to "メッセージ追加", "/messages/new", class: "btn btn-dark ml-4"%>
 <% @students.each do |s| %>
     <h2>
         生徒名：<%= s.name %>

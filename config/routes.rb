@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :messages, only: [:new, :create]
+
 #   変更点は反映されておりますでしょうか  
   get 'charts/index'
 

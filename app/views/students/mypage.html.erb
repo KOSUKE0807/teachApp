@@ -1,29 +1,35 @@
 <div class="mypage-wrapper">
-    <h1 class="mypage-title"><%= @student.name %> 's mypage</h1>
-    <div class="container">
-        <% @test_types.each do |t| %>
-            <div class="type-name-tag active-type-name-tag"><%= t.name %></div>
-        <% end %>
-    </div>
-    
-    <div class="container list-container">
-        <% @test_types.each do |type| %>
-            <div class="test-list-wrapper">
-                <h1><%= type.name %></h1>
-                <div class="test-card-wrapper">
-                    <% @test_cards[type.id].each do |card| %>
-                        <div class="test-card" id="card">
-                            <h2 class="test-card-title"><%= card[:date] %></h2>
-                            <div class="test-card-score-wrapper">
-                                <div class="test-card-score">
-                                    <span><%= card[:score] %></span>点
+    <div class="score-wrapper">
+        <h2><span class="ave-line1"></span> Everything is practice <span class="ave-line1"></span></h2>
+        <div class="container">
+            <% @test_types.each_with_index do |t, index| %>
+                <% if index==0 %>
+                    <div class="type-name-tag active-type-name-tag"><%= t.name %></div>
+                    <% next %>
+                <% end %>
+                <div class="type-name-tag"><%= t.name %></div>
+            <% end %>
+        </div>
+        
+        <div class="container list-container">
+            <% @test_types.each do |type| %>
+                <div class="test-list-wrapper">
+                    <h1><%= type.name %></h1>
+                    <div class="test-card-wrapper">
+                        <% @test_cards[type.id].each do |card| %>
+                            <div class="test-card" id="card">
+                                <h2 class="test-card-title"><%= card[:date] %></h2>
+                                <div class="test-card-score-wrapper">
+                                    <div class="test-card-score">
+                                        <span><%= card[:score] %></span>点
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    <% end %>
+                        <% end %>
+                    </div>
                 </div>
-            </div>
-        <% end %>
+            <% end %>
+        </div>
     </div>
     
     <%= render 'shared/calendar' %>

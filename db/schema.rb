@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191214165418) do
+ActiveRecord::Schema.define(version: 20200202025052) do
 
   create_table "episodes", force: :cascade do |t|
     t.string "title"
@@ -18,6 +18,16 @@ ActiveRecord::Schema.define(version: 20191214165418) do
     t.string "auther"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.string "title", null: false
+    t.text "detail", null: false
+    t.date "date"
+    t.integer "student_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["student_id"], name: "index_messages_on_student_id"
   end
 
   create_table "scores", force: :cascade do |t|

@@ -14,9 +14,79 @@
                   <%= link_to "ログアウト", stu_logout_path, method: "delete", class: "nav-item" %>
               <% end %>
               <% unless @current_student || teacher_signed_in? %>
+                  <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-outline-warning" data-toggle="modal" data-target="#exampleModal-teacher">
+                      Teacherログイン
+                    </button>
+                    <button type="button" class="btn btn-outline-warning ml-3" data-toggle="modal" data-target="#exampleModal-student">
+                      生徒ログイン
+                    </button>
                   <%= link_to "Teacher", new_teacher_session_path, class: "nav-item nib ml-auto" %>
                   <%= link_to "Student", stu_login_path, class: "nav-item" %>
               <% end %>
         </div>
     </nav>
 </header>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal-teacher" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">先生　ログイン</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    
+          <div class="modal-body">
+
+            
+               <p>koredekinai</p>
+            
+          </div>
+          <div class="modal-footer">
+                <div class="actions form-group">
+                </div>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+         </div>
+    
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal-student" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">生徒　ログイン</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      
+    <%= form_for( :session, method: "post", url: stu_login_path) do |f| %>
+    
+      <div class="modal-body">
+            <div class="form-group">
+                <%= f.label :name, "生徒名" %>
+                <%= f.text_field :name, class: "form-control" %>
+            </div>
+            
+            <div class="form-group">
+                <%= f.label :password, "パスワード" %>
+                <%= f.password_field :password, class: "form-control" %>
+            </div>
+      </div>
+          <div class="modal-footer">
+            <%= f.submit "ログイン", class: "btn btn-outline-dark" %>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+          
+    <% end %>    
+    
+    </div>
+  </div>
+</div>

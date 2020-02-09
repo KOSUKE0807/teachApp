@@ -20,7 +20,7 @@ class StudentsController < ApplicationController
     @types = Test
     @uniq_test_scores = {}
     @temp_scores = []
-    
+    @messages = Message.where(student_id: params[:id])
     
     
     TestType.all.each do |type|
@@ -63,6 +63,8 @@ class StudentsController < ApplicationController
         end
       end
     end
+    require "date"
+    @messages = Message.where(student_id: @student.id)
   end
   
   private

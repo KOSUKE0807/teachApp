@@ -19,10 +19,11 @@
     <%= f.submit "スコア追加", class: "btn btn-outline-primary" %>
 <% end %>
 
+<%= render "shared/calendar" %>
+
 <h1><%= @uniq_test_scores[1] %></h1>
 <h1><%= @n %></h1>
 
 <canvas id="myChart" width="400" height="200"></canvas> 
 <script>draw_graph();</script> 
 
-<%= render "shared/calendar" %>
