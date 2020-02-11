@@ -1,23 +1,71 @@
-<h1 class="a" style="padding-top: 90px;">生徒詳細画面</h1>
-<h1>生徒名：<%= @student.name %></h1>
-<h1>先生：<%= @student.teacher.name %></h1>
-<h1>ID：<%= @student.id %></h1>
+<div class="jumbotron">
+  <h1 class="display-4"><%= @student.name %></h1>
+  <p class="lead">担当先生は <%= @student.teacher.name %>先生 です。</p>
+  <hr class="my-4">
+  <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+      テスト追加
+  </button>
+</div>
+
+<div class="student-test-scores-wrapper">
+    <% @uniq_test_scores.each do |key, val| %>
+        <div class="student-test-scores-card">
+            <div class="name"><%= key.name %></div>
+            <div class="scores-wrapper">
+              <% val.each do |score| %>
+                <% if val.present? %>
+                    <div class="score">
+                        <span class="date dd"><%= score.created_at.strftime("%Y年%m月%d日") %></span>
+                        <span class="sc"><%= score.score %>点</span>
+                    </div>
+                <% end %>
+              <% end %>
+            </div>
+        </div>
+    <% end %>
+</div>
 
 
-<% @uniq_test_scores.each do |key, val| %>
-    <p>テストIDが<%= key %>のスコアは<%= val %>です</p>
-<% end %>
 
-<%= form_for(@score, method: "post",  url: scores_create_path) do |f| %>
-    
-    <div class="form-group">
-        <%= f.label :score, "点数" %>
-        <%= f.number_field :score, class: "form-control" %>
+
+<!-- スコア追加フォームのModal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">テスト追加</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= form_for(@score, method: "post",  url: scores_create_path) do |f| %>
+            <div class="form-group">
+                <%= f.hidden_field :student_id, value: @student.id %>
+                <%= f.label :test_id, "テスト選択" %>
+                <%= f.collection_select :test_id, Test.all, :id, :name, {}, class: "form-control mb-4" %>
+                <%= f.label :score, "点数" %>
+                <%= f.number_field :score, class: "form-control" %>
+            </div>
+            <%= f.submit "スコア追加", class: "btn btn-outline-primary" %>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
     </div>
-    
-    
-    <%= f.submit "スコア追加", class: "btn btn-outline-primary" %>
-<% end %>
+  </div>
+</div>
+
+
+
+
+
+
+
+<%= render "shared/calendar" %>
 
 <h1><%= @uniq_test_scores[1] %></h1>
 <h1><%= @n %></h1>
@@ -25,4 +73,3 @@
 <canvas id="myChart" width="400" height="200"></canvas> 
 <script>draw_graph();</script> 
 
-<%= render "shared/calendar" %>

@@ -1,0 +1,51 @@
+// Place all the styles related to the messages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.msg-explain h2{
+    border-bottom: solid 3px #ffc778;
+    position: relative;
+    margin: 40px;
+}
+.msg-explain h2:after {
+  position: absolute;
+  content: " ";
+  display: block;
+  border-bottom: solid 3px #D2691E;
+  bottom: -3px;
+  width: 50%;
+}
+
+.msg-explain {
+    text-align: center;
+}
+
+.f-wrapper {
+    width: 700px;
+    border: 3px solid #ccc;
+    border-radius: 6px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #FFFFF0;
+}
+
+.form-group p{
+    text-align: center;
+}
+
+.student-select {
+    text-align: center;
+}
+
+
+.msg-form-title {
+    text-align: center;
+}
+
+.date-btn{
+    text-align: center;
+}
+
+.msg-btn {
+    text-align: center;
+    padding: 0px 30px;
+}

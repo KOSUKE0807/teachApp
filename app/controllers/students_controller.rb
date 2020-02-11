@@ -20,25 +20,27 @@ class StudentsController < ApplicationController
     @types = Test
     @uniq_test_scores = {}
     @temp_scores = []
-    
+    @messages = Message.where(student_id: params[:id])
     
     
     TestType.all.each do |type|
       @student.scores.each do |score|
         if type.id == score.test.test_type_id
-          @temp_scores.push(score.score)
+          @temp_scores.push(score)
         end
       end
      
-      @uniq_test_scores[type.id] = @temp_scores
+      @uniq_test_scores[type] = @temp_scores
       @temp_scores = []
     end
     @score = @student.scores.new
     gon.data = []
     @n = 0
+    if @uniq_test_scores[1].present?
     @uniq_test_scores[1].each do |score|
       gon.data.push(score)
       @n = @n + 1
+    end
     end
   end
   
@@ -63,6 +65,8 @@ class StudentsController < ApplicationController
         end
       end
     end
+    require "date"
+    @messages = Message.where(student_id: @student.id)
   end
   
   private

@@ -1,0 +1,86 @@
+.calendar-wrapper {
+    background-image: url(1.jpg);
+    width: 89%;
+    height: 800px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 1px solid gray;
+    box-shadow: 0 0 10px black;
+    padding: 50px;
+    box-sizing: border-box;
+    margin: 0 auto;
+    border-radius: 15px;
+}
+
+.calendar-wrapper h1 {
+    font-weight: bold;
+    color: #FFD700;
+    margin-bottom: 5px;
+    margin-top: 30px;
+}
+
+.calendar-title{
+    color: black;
+    font-size: 25px;
+}
+
+
+.calendar-wrapper p {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: #FFD700;
+}
+
+.calendar-border-wrapper {
+    border: 1px solid gray;
+    box-shadow: 0 0 10px black;
+    padding: 50px;
+}
+
+.calendar-date {
+    width: 700px;
+    height: 700px;
+    background: #fff;
+    color: black;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+
+.calendar-day {
+    width: 100px;
+    height: 30px;
+    background: #fff;
+    text-align: center;
+    font-size: 20px;
+    color: #acf;
+    border: 1px solid #ccc;
+}
+.calendar-num {
+    width: 100px;
+    height: 100px;
+    background: #fff;
+    border: 1px solid #ccc;
+    transition: .3s;
+}
+
+.calendar-num:hover {
+    background: #ccc;
+    cursor: pointer;
+}
+
+.calendar-message-title {
+    width: 100%;
+    height: 100%;
+}
+
+.calendar-num > p {
+    width: 100%;
+    background: #eef;
+    color: #aaa;
+    font-size: 15px;
+    padding: 0;
+    height: 17px;
+}

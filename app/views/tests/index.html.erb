@@ -1,6 +1,67 @@
-<h1 class="mt-5">テスト一覧ページ</h1>
-<%= link_to "テスト追加", new_test_path, class: "btn btn-primary" %>
 
-<% @tests.each do |t| %>
-    <h2 class="bg-dark my-3"><%= link_to "#{ t.name }   #{ t.test_type.name }  #{ t.test_date }", test_path(t.id) %></h2>
-<% end %>
+<div class="test-list-index"><h1 class="mt-5">テスト一覧ページ</h1><p>生徒やテストごとに得点の記入またはテストの作成をすることができます。</p></div>
+
+
+<div class="all-tests-wrapper">
+    <% @tests.each do |t| %>
+        <% if t.test_type.present? %>
+        <div class="indexTestCard">
+            <div class="name">
+                <%= t.name %>
+            </div>
+            <div class="status">
+                <p class="date"><%= t.test_date.strftime("%Y月%m月%d日") %></p>
+                <p><%= t.test_type.name %></p>
+            </div>
+            <div class="action" data-toggle="modal" data-target="#exampleModal">
+                <i class="fas fa-plus-circle mb-3"></i>
+                <span>スコア追加</span>
+            </div>
+            <div class="action">
+                <i class="fas fa-edit mb-3"></i>
+                <span>編集</span>
+            </div>
+        </div>
+        
+        
+        <!-- スコア追加フォームのModal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">スコア追加</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <%= form_for(@score, method: "post",  url: scores_create_path) do |f| %>
+                    <div class="form-group">
+                        <%= f.label :test_id, t.name, class: "mb-4" %>
+                        <%= f.hidden_field :test_id, value: t.id %>
+                        <%= f.label :student_id %>
+                        <%= f.collection_select :student_id, Student.where(teacher_id: 1), :id, :name, {}, class: "form-control mb-4" %>
+                        <%= f.label :score, "点数" %>
+                        <%= f.number_field :score, class: "form-control" %>
+                    </div>
+                    <%= f.submit "スコア追加", class: "btn btn-outline-primary" %>
+                <% end %>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <% end %>
+    <% end %>
+</div>
+
+<div class="new-test-bottom">
+  <h1>新しくテストを追加</h1>
+  <p>新しくテストを作成した場合は登録した後点数を入力してください</p>
+  <div class="new-test-btn">
+      <%= link_to "テスト追加", new_test_path, class: "btn btn-dark" %>
+  </div>
+</div>
+

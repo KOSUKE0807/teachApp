@@ -1,6 +1,7 @@
 class TestsController < ApplicationController
   def index
     @tests = Test.all
+    @score = Score.new
   end
 
   def show

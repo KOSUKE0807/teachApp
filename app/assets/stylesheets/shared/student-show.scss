@@ -1,0 +1,73 @@
+.student-test-scores-wrapper {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.student-test-scores-card {
+    width: 90%;
+    height: 100px;
+    box-shadow: 0 0 30px gray;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+}
+
+.student-test-scores-card > .name {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    border-right: 1px solid #777;
+    justify-content: center;
+    align-items: center;
+}
+
+.student-test-scores-card > .scores-wrapper {
+    width: 700px;
+    background: #fff;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+    overflow: scroll;
+    border-right: 1px solid #777;
+}
+
+.student-test-scores-card > .scores-wrapper > .score {
+    width: 90px;
+    height: 100%;
+    background: #eee;
+    border-right: 1px solid gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-shrink: 0;
+    transition: .4s;
+}
+
+
+.student-test-scores-card > .scores-wrapper > .score > span.date {
+    font-size: 9px;
+    color: #777;
+    margin-bottom: 10px;
+}
+.student-test-scores-card > .scores-wrapper > .score > span.sc {
+    font-size: 24px;
+    color: #777;
+}
+.student-test-scores-card > .scores-wrapper > .score:hover {
+    background: #555;
+    color: white;
+}
+.student-test-scores-card > .scores-wrapper > .score:hover .date,
+.student-test-scores-card > .scores-wrapper > .score:hover .sc,
+{
+    color: white;
+}

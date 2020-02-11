@@ -1,6 +1,6 @@
 class TopController < ApplicationController
   def home
-    @center_date = Date.new(2020, 1, 18)
+    @center_date = Date.new(2021, 1, 16)
     @date = @center_date - Date.current
     @date_of_examination = @date.to_i
     
@@ -78,7 +78,8 @@ class TopController < ApplicationController
           @total += s
         end
       end
-      @total = 1 if @total == 0
+      @total = 1 if @total == 0 
+      @all_scores[type_id][:scores] = [20, 20, 20] if @all_scores[type_id][:scores].length == 0
       @all_scores[type_id][:ave_score] = @total / @all_scores[type_id][:scores].length if @total != 0 
       @total = 0
     end
