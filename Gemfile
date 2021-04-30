@@ -11,7 +11,7 @@ gem 'jbuilder',     '2.7.0'
 gem 'devise'
 gem 'bcrypt', '~> 3.1.7'
 gem 'chart-js-rails', '~> 0.1.4'
-gem 'gon', '~> 6.2.0'
+gem 'gon', '~> 6.4.0'
 
 group :development, :test do
   gem 'sqlite3', '1.3.13'
