@@ -12,7 +12,7 @@
     width: 630px;
     height: 630px;
     background: #444;
-    color: white;
+    color: black;
     display: flex;
     flex-wrap: wrap;
     align-content: flex-start;
@@ -21,12 +21,12 @@
 .calendar-day {
     width: 90px;
     height: 90px;
-    background: #101010;
-    border: 1px solid white;
+    background: #fff;
+    border: 1px solid black;
 }
 .calendar-num {
     width: 90px;
     height: 90px;
-    background: #101010;
-    border: 1px solid white;
+    background: #fff;
+    border: 1px solid black;
 }

@@ -10,6 +10,6 @@ class ApplicationController < ActionController::Base
   
   def current_student
     return unless session[:stu_id]
-    @current_student = Student.find(session[:stu_id])
+    # @current_student = Student.find(session[:stu_id])
   end
 end
