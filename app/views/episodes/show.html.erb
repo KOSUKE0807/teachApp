@@ -1,8 +1,22 @@
-<div class="jumbotron">
-  <h1 class="display-4"><%= @episode.title %></h1>
-  <p class="lead"><%= @episode.contents %></p>
-  <hr class="my-4">
-  <p><%= @episode.auther %></p>
-  <%= link_to "削除", "/episodes/#{@episode.id}", method: "delete", class: "btn btn-light ml-5" %>
-  <%= link_to "編集", "/episodes/#{@episode.id}/edit",  class: "btn btn-light ml-5" %>
+<div class = "show_episode_wrapper">
+  <div class = "show_episode_title">
+    <h1 class="display-4"><%= @episode.title %></h1>
+  </div>
+  <div>
+    <h3>合格までの道のり</h3>
+    <p class="lead"><%= @episode.contents %></p>
+  </div>
+  <div class = "story-maker-name">
+    作成者: <span><%= @episode.auther %></span>
+  </div>
+  <div>
+    <% if teacher_signed_in? %>
+    <div>
+      <%= link_to "削除", "/episodes/#{@episode.id}", method: "delete", class: "btn btn-light ml-5" %>
+    </div>
+    <div>
+      <%= link_to "編集", "/episodes/#{@episode.id}/edit",  class: "btn btn-light ml-5" %>
+    </div>
+    <% end %>
+  </div>
 </div>

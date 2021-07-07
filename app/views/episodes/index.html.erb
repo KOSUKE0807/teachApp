@@ -1,7 +1,21 @@
-<% @all_episodes.each do |epi| %>
-    <%= link_to epi.title, "/episodes/#{epi.id}" %>
-    <br/>
-    <hr/>
-<% end %>
 
+<div class = "episode_title_wrapper" >
+    <div class="episode_title">
+        <h2>OB・OGの合格体験記</h2>
+    </div>
+    <div class="episode_background">
+        <div class="episode_title_title">
+            <h3>合格体験記タイトル一覧</h3>
+        </div>   
+        <div class="episode_title_list">
+            <% @all_episodes.each do |epi| %>
+                <div class="each_episode_title_list">
+                    <%= link_to epi.title, "/episodes/#{epi.id}", class:"btn btn-info btn-lg btn-block" %>
+                    <br/>
+                    <p class="box"></p>
+                </div>
+            <% end %>
+        </div>
+    </div>
 
+</div>

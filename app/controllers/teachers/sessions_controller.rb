@@ -5,7 +5,8 @@ class Teachers::SessionsController < Devise::SessionsController
 
   # GET /resource/sign_in
   # def new
-  #   super
+    # super
+  #   redirect_to current_teacher
   # end
 
   # POST /resource/sign_in

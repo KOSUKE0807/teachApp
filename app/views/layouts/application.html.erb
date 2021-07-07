@@ -4,7 +4,6 @@
     <title>TeachApp</title>
     <%= csrf_meta_tags %>
     
-    
     <%= Gon::Base.render_data %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     
@@ -15,9 +14,6 @@
 
   <body>
     <%= render "top/header" %>
-    <% if flash.notice.present? %>
-      <p class="notice"><%= flash.notice %></p>
-    <% end %>
    <div class="contents">
      <%= yield %>
    </div>

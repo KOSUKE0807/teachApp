@@ -8,6 +8,10 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
   end
   
+  def after_sign_in_path_for(resource)
+    teachers_account_path(current_teacher)
+  end
+  
   def current_student
     return unless session[:stu_id]
     @current_student = Student.find(session[:stu_id])

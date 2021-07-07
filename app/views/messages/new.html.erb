@@ -1,0 +1,49 @@
+
+<div class="msg-explain">
+    <h2 class="msg-form-title">Calender</h2>
+    <p>生徒のカレンダーに授業日程やメッセージを書き込むことができます。
+       <br>まず自分の生徒を選択してください。
+       <br>その後、件名、メッセージ内容をそれぞれ記入し
+       <br>日にちを選択しましょう。
+    </p>
+</div>
+<div class="f-wrapper">
+    <%= form_for @message do |f| %>
+        <div class="form-group">
+            <p>生徒を選択</p>
+            <div class="student-select">
+                <%= f.label :student_id, "student" %>
+                <%= f.collection_select :student_id, Student.where(teacher_id: current_teacher.id), :id, :name, class: "form-control" %>
+            </div>
+        </div>
+        <div class="form-group">
+            <%= f.label :title %><span> (件名・用件を記入)</span>
+            <%= f.text_field :title, class: "form-control" %>
+        </div>
+        <div class="form-group">
+            <%= f.label :detail %><span> (メッセージやコメントを記入)</span>
+            <%= f.text_area :detail, class: "form-control", rows: 10 %>
+        </div>
+        
+        <p></p>
+        <div class="form-group date-btn">
+            <%= f.label :date %>
+            <%= f.date_select :date, {}, class: 'fform-control' %>
+        </div>
+        
+        <div class="msg-btn">
+            <%= f.submit "カレンダーに追加", class: "btn btn-outline-dark btn-lg btn-block" %>
+        </div>
+    <% end %>
+</div>
+
+<div class="each_student_list_title">
+    <h3>担当生徒のカレンダー</h1>
+    <p>あなたの担当している生徒のカレンダー全てを見ることができます</p>
+    <% @students.each do |student| %>
+        <div class="each_student_list">
+            <h1><%= student.name %>さんのカレンダー</h1>
+            <%= render partial:  "shared/calendar", locals: { messages: student.messages } %>
+        </div>    
+    <% end %>
+</div>

@@ -1,0 +1,79 @@
+// Place all the styles related to the episodes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.episode_title_wrapper {
+    padding: 130px;
+    padding-top: 60px;
+}
+
+.episode_title {
+    text-align: center;
+    margin-bottom: 100px;
+}
+.episode_title > h2 {
+    padding: 0.5em;
+    background: aliceblue;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.23);
+    font-family: 'Osaka';
+}
+
+.episode_background {
+    background: #FAFAD2;
+    padding-top: 50px;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.23);
+    padding-bottom: 50px;
+}
+
+.episode_title_title {
+    margin-left: 13%;
+}
+
+.episode_title_title > h3 {
+    font-family: 'Osaka';
+}
+
+.episode_title_list {
+    padding: 30px;
+    padding-left: 20%;
+    padding-right: 20%;
+}
+
+.each_episode_title_list {
+    margin: 20px;
+}
+
+.each_episode_title_list > p {
+    margin-top: 20px;
+    border-bottom: 3px solid #DAA520;
+}
+
+// ここから詳細ページ
+
+.show_episode_wrapper {
+    padding : 8%;
+    padding-top : 5%;
+    margin : 6%;
+    background: #FFFACD;
+    min-width :　100px;
+    max-width : 100%;
+    min-height : 850px;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+}
+
+.show_episode_title {
+    text-align: center;
+}
+
+.show_episode_title > h1 {
+    font-family: 'HiraKakuPro-W6';
+    border-bottom: solid 3px #87CEFA;
+}
+
+.story-maker-name {
+    margin-top: 400px;
+}
+
+.story-maker-name > span {
+    font-family: 'Hiragino Kaku Gothic Std';
+}
+

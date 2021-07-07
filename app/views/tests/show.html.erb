@@ -1,6 +1,8 @@
 <h1 class="mt-5"><%= @test.name %></h1>
+<% if @test.test_type.present? %>
 <h2><%= @test.test_type.name %></h2>
 <h2><%= @test.test_date %></h2>
+<% end %>
 <h2 style="margin-bottom: 100px;">平均点：<%= @ave_score %>点</h2>
 
 <%= render @test.scores %>

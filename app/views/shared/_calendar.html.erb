@@ -1,5 +1,9 @@
-<div class="calendar-wrapper">
-    <h2 class="calendar-title">2019/12</h2>
+<div  class="calendar-wrapper">
+    <h1>Caledar<br>
+    <span class="calendar-title">(<%= Time.current.strftime("%Y年 %m月") %>)</span>
+    </h1>
+    <p>今月の授業日程や持ち物について確認しましょう。
+    <br>また日にちをクリックすると先生からのコメントが見れます。</p>
     <div class="calendar-date">
         <div class="calendar-day">月</div>
         <div class="calendar-day">火</div>
@@ -13,7 +17,58 @@
         <% end %>
 
         <% get_all_month_day.times do |i|  %>
-            <div class="calendar-num"><%= i + 1 %></div>
+            <div class="calendar-num presentNum" data-toggle="modal" data-target="#calendarModal">
+                <p><%= i + 1 %></p>
+                <% messages.each do |msg| %>
+                    <% if i+1 == msg.date.day && controller.action_name == "show" %>
+                        <div class="calendar-message-title"><%= msg.title %></div>
+                        <!-- Modal -->
+                        <div class="modal fade" id="calendarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                          <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel"><%= i + 1 %>日の予定</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>
+                              <div class="modal-body">
+                                <% @today = "#{Time.current.year}/#{Time.current.month}/#{i + 1}" %>
+                                <%= form_for @newMsg do |f| %>
+                                    <div class="form-group">
+                                        <%= f.label :title, "タイトル" %>
+                                        <%= f.text_field :title, class: "form-control" %>
+                                    </div>
+                                    <div class="form-group">
+                                        <%= f.label :detail, "詳細" %>
+                                        <%= f.text_field :detail, class: "form-control" %>
+                                    </div>
+                                    <%= f.hidden_field :date, value: @today %>
+                                    <%= f.hidden_field :student_id, value: @student.id %>
+                                    <%= f.submit "送信", class: "btn btn-primary" %>
+                                <% end %>
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                    <% elsif i+1 == msg.date.day && controller.action_name == "mypage" %>
+                        <div class="calendar-message-title"><%= msg.title %></div>
+                    <% elsif i+1 == msg.date.day %>
+                        <div class="calendar-message-title"><%= msg.title %></div>
+                    <% end %>
+                <% end %>
+            </div>
         <% end %>
     </div>
+
+    <% if controller.action_name == "show" %>
+        <h1>show action から</h1>
+    <% elsif controller.action_name == "mypage" %>
+        <h1>mypage action から</h1>
+    <% end %>   
+
 </div>
+

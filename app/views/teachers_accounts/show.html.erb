@@ -1,12 +1,35 @@
-<h1 class="mt-5"><%= current_teacher.name %></h1>
-<p>Find me in app/views/teachers/show.html.erb</p>
+<p class="mt-5 message_to_teacher" >ようこそ!　 <span><%= current_teacher.name %></span>　 先生</p>
 
-<%= link_to "テスト一覧", tests_path, class: "btn btn-dark"  %>
+<div class="your_students_list">
+    <h1 class="your_tudents_title">Your Students　<span>あなたの担当している生徒の一覧です</span></h1>
+    <div class="your_students">
+        <% @students.each do |s| %>
+            <div class="each_student_circle">
+                <h3>
+                生徒　<%= s.name %>　さん
+                <br><%= link_to "詳細ページへ", student_path(s.id), class: "link-style" %>
+                </h3>
+            </div>
+    
+        <% end %>
+    </div>
+</div>
 
-<% @students.each do |s| %>
-    <h2>
-        生徒名：<%= s.name %>
-        <%= link_to "詳細ページへ", student_path(s.id) %>
-    </h2>
+<div class="teachers-item-contents">
+    <div class="test-title-and-coment">
+        <h1>Test<p>テスト一覧の確認や点数入力<br>テスト作成をすることができます</p></h1>
+        
+        <div class="centerBtn">
+        <%= link_to "こちらから", tests_path, class: "btn btn-dark center"  %>
+        </div>
+    </div>
 
-<% end %>
+    <div class="calender-title-and-coment">
+        <h1>Calender<p>生徒のカレンダーに授業日程を表示することや<br>メッセージを送ることができます</p></h1>
+        
+        <div class="centerBtn">
+        <%= link_to "こちらから", "/messages/new", class: "btn btn-dark ml-4"%>
+        </div>
+    </div>
+    
+</div>

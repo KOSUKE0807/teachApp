@@ -1,18 +1,9 @@
-<h2 class="mt-5">生徒　ログインフォーム</h2>
-<%= form_for :session, method: "post", url: stu_login_path do |f| %>
-
-    <div class="form-group">
-        <%= f.label :name , "名前" %>
-        <%= f.text_field :name, class: "form-control" %>
+<div class="login-error-wrapper">
+    <div class="login-error-title">
+        <h2 class="mt-5">ログインに失敗しました</h2>
     </div>
-    <div class="form-group">
-        <%= f.label :password , "パスワード"  %>
-        <%= f.password_field :password, class: "form-control" %>
+    <div class="login-error-messages">
+        <p>生徒名とパスワードを確認の上もう一回ログインしましょう。</p>
+        <p>パスワードを忘れた場合は担当の先生に報告してください。</p>
     </div>
-    
-    <%= f.submit "ログイン", class: "btn btn-dark" %>
-
-
-<% end %>
-
-<%= link_to "新規登録をする", new_student_path, class: "btn btn-outline-dark mt-4" %>
+</div>

@@ -1,0 +1,46 @@
+.message_to_teacher {
+  font-size: 30px;
+  margin-bottom: 35px;
+  font-weight: bold;
+  text-align: center;
+  border-bottom: solid 2px orange; }
+
+.message_to_teacher span {
+  font-size: 40px; }
+
+.your_students_list {
+  padding: 0.5em 1em;
+  margin: 40px 40px 40px 40px;
+  color: #2c2c2f;
+  background: #ffffe0;
+  box-shadow: 3px 3px 6px; }
+
+.your_tudents_title {
+  padding-left: 10%; }
+
+.your_tudents_title span {
+  font-size: 25px; }
+
+.your_students {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin: 20px 20%; }
+
+.each_student_circle {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: skyblue;
+  margin: 10px auto; }
+
+.each_student_circle h3 {
+  position: absolute;
+  display: inline-block;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  width: 300px;
+  text-align: center; }
+
+/*# sourceMappingURL=teachers.css.map */

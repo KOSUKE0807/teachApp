@@ -2,9 +2,11 @@ class ScoresController < ApplicationController
   def create
     @score = Score.new(score_params)
     if @score.save
-      redirect_to test_path(@score.test.id)
+      flash[:notice] = "テスト追加しました。"
+      redirect_to @score.student
     else
-      redirect_to test_path(@score.test.id)
+      flash[:notice] = "テスト追加できませんでした。"
+      redirect_to @score.student
     end
   end
 

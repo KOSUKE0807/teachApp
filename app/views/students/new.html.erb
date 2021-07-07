@@ -1,30 +1,32 @@
-<h1>Students#new</h1>
-<%= form_for( @student) do |f| %>
-
-
-    <div class="form-group">
-        <%= f.label :name , "名前" %>
-        <%= f.text_field :name, class: "form-control" %>
+ <div>
+    <div class="new-student-title">
+        <h1>生徒　新規登録</h1>
     </div>
-    <div class="form-group">
-        <%= f.label :teacher_id , "先生" %>
-        <%= f.collection_select(:teacher_id, @teachers, :id, :name, {}, class: "form-control") %>
+    <div class="new-student-form">
+        <%= form_for( @student) do |f| %>
+            <div class="form-group">
+                <%= f.label :name , "名前" %>
+                <%= f.text_field :name, class: "form-control" %>
+            </div>
+            <div class="form-group">
+                <%= f.label :teacher_id , "先生" %>
+                <%= f.collection_select(:teacher_id, @teachers, :id, :name, {}, class: "form-control") %>
+            </div>
+            
+            
+            
+            <div class="form-group">
+                <%= f.label :password , "パスワード"  %>
+                <%= f.password_field :password, class: "form-control" %>
+            </div>
+            <div class="form-group">
+                <%= f.label :password_confirmation , "パスワードの確認"  %>
+                <%= f.password_field :password_confirmation, class: "form-control" %>
+            </div>
+            
+            <%= f.submit "送信", class: "btn btn-outline-dark" %>
+        <% end %>
     </div>
+ </div>
     
-    
-    
-    <div class="form-group">
-        <%= f.label :password , "パスワード"  %>
-        <%= f.password_field :password, class: "form-control" %>
-    </div>
-    <div class="form-group">
-        <%= f.label :password_confirmation , "パスワードの確認"  %>
-        <%= f.password_field :password_confirmation, class: "form-control" %>
-    </div>
-    
-    <%= f.submit "送信", class: "btn btn-outline-dark" %>
-
-    
-<% end %>
-
-   
+       

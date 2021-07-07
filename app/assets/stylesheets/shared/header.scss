@@ -1,0 +1,200 @@
+header .navbar {
+    height: 80px;
+    margin: 0;
+    padding: 0 70px;
+    background: #fff;
+    position: fixed;
+    top: 0;
+    z-index: 5;
+    width: 100%;
+    border-bottom: 1px solid orange;
+}
+
+.navbar:hover {
+    transition: .4s;
+    border-bottom: 2px solid orange;
+}
+
+.navbar > .container {
+    // height: 80px;
+    display: block;
+    font-size: 20px;
+}
+
+.logo-text {
+    line-height: 70px;
+    padding: 0 20px;
+    font-family: 'Georgia';
+    font-weight: bold;
+    font-size: 27px;
+    color: black;
+    transition: .4s;
+}
+
+.logo-text-a {
+    color: #FF570D;
+    font-size: 32px;
+    letter-spacing: 1px;
+}
+
+.logo-text a{
+    display: block;
+    color: #101010;
+    line-height: 70px;
+    padding: 0 20px;
+    transition: .4s;
+    margin-bottom: 5px;
+}
+
+.logo-text a:hover {
+    color: white;
+    text-decoration: none;
+    background: orange;
+    border-radius: 25px;
+}
+
+
+.header-items {
+    list-style: none;
+    display: flex;
+}
+
+.header-items > li {
+    margin-left: 50px;
+}
+
+.header-items > li > .btn-nav-item {
+    line-height: 70px;
+    display: inline-block;
+    margin: auto;
+    padding: 0 20px;
+    transition: .4s;
+    font-size: 20px;
+    font-family: 'Impact';
+    letter-spacing: 1px;    
+}
+
+.header-student-name {
+    font-size: 20px;
+    margin-top: 10px;
+    margin-right: auto;
+}
+
+
+
+// .nav-item {
+//     color: #101010;
+//     padding: 0 30px;
+//     // border-right: 1px solid orange;
+//     transition: .4s;
+// }
+
+.btn-nav-item > button.btn:hover {
+    color: white;
+    border-radius: 50%;
+    background: #FF570D;
+    height: 60px;
+}
+
+div.btn-nav-item {
+    margin-left: 50%;
+}
+
+.btn-nav-item > button.btn {
+     background: white;
+     color: black;
+     padding-top: 5px;
+     padding-bottom: 5px;
+     padding-left: 30px;
+     padding-right: 30px;
+     font-family: 'Georgia';
+     font-size: 22px;
+     border: none;
+     transition: .4s;
+     outline: none;
+}
+
+.btn-nav-item > .teacher-nav {
+     color: #101010;
+     padding: 0 30px;
+    //  background: white;
+     padding-top: 5px;
+     padding-bottom: 5px;
+     padding-left: 30px;
+     padding-right: 30px;
+     font-family: 'Georgia';
+     font-size: 22px;
+     border: none;
+     transition: .4s;
+     outline: none;    
+}
+
+.btn-nav-item > .teacher-nav:hover {
+    color: white;
+    border-radius: 50%;
+    background: #FF570D;
+    height: 60px;
+}
+
+
+.fade {
+    padding: 100px;
+}
+
+//.form-group {
+    // text-align: center;
+//}
+
+ .fade > h1 {
+    text-align: center;
+}
+
+.modal-header {
+    background: #FFD700;
+}
+
+.modal-title {
+    margin-left: 35%;
+    font-family: 'Osaka';
+}
+
+.modal-body {
+    background: #FFD700;
+}
+
+.header-menu-icon {
+    display: none;
+}
+
+
+@media (max-width: 1000px) {
+    .header-menu-icon {
+        display: block;
+        line-height: 70px;
+        font-size: 50px;
+        padding: 0 20px;
+    }
+    .header-items {
+        display: block;
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 100%;
+        padding: none;
+        background: #D2691E;
+        transition: .5s;
+    }
+    
+    .header-items > li {
+        border-bottom: 1px solid white;
+        width: 100%;
+        margin: 0;
+        padding-left: 40px;
+    }
+    
+    #check:checked ~ .header-items {
+        display: block;
+        left: 0;
+    }
+    
+}
